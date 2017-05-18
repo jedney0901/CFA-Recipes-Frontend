@@ -8,7 +8,7 @@ class IngredientForm extends Component {
   };
 
   newIngredient() {
-    const URL = 'http://yamagucci.herokuapp.com/api/ingredients?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNob3VoZWkueWFtYXVjaGlAbGl2ZS5jb20iLCJpYXQiOjE0OTQ5OTMxMTV9.G0ctQghRRAqaZiGSZyT5Oi-YXUUfb3UsYQpsmMaVA0k';
+    const URL = 'https://floating-sierra-28728.herokuapp.com/api/v1';
     axios.post(URL + '&name=' + this.nameInput.value)
       .then((response) => {
         console.log(response)
