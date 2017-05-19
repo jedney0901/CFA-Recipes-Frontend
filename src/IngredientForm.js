@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Button } from 'react-materialize';
 
 class IngredientForm extends Component {
   handleInputChange(e) {
@@ -8,8 +9,8 @@ class IngredientForm extends Component {
   };
 
   newIngredient() {
-    const URL = 'https://floating-sierra-28728.herokuapp.com/api/v1';
-    axios.post(URL + '&name=' + this.nameInput.value)
+    const URL = 'https://floating-sierra-28728.herokuapp.com/api/v1/';
+    axios({method: 'post', url: URL, data: {ingredient_name: this.nameInput.value}})
       .then((response) => {
         console.log(response)
         // fix this to remove input value
@@ -28,7 +29,7 @@ class IngredientForm extends Component {
           type="text"
           ref={(input) => { this.nameInput = input; }}
           onChange={(e) => this.handleInputChange(e)} />
-        <button onClick={() => this.newIngredient()}>Create!!</button>
+        <Button onClick={() => this.newIngredient()}>Create!!</Button>
       </div>
     )
   };
