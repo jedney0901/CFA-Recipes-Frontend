@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import IngredientList from './IngredientList';
 import IngredientForm from './IngredientForm';
+import { Col, Card } from 'react-materialize';
 
 class App extends Component {
   constructor(props){
@@ -18,7 +19,7 @@ class App extends Component {
 
   getIngredientList() {
     // Get Data
-    const URL = 'https://floating-sierra-28728.herokuapp.com/api/v1'
+    const URL = 'https://floating-sierra-28728.herokuapp.com/api/v1/'
     // Use axios to get data
     axios.get(URL)
       .then((response) => {
@@ -30,14 +31,19 @@ class App extends Component {
       });
   };
 
+  onClickDelete() {
+
+  }
+
 
   render() {
     return (
       <div >
         <h1>Recipes Frontend</h1>
-        <IngredientForm
-        getIngredientList={() => this.getIngredientList()} />
-        {this.state.ingredients.length < 1 ? <p>Loading...</p> : <IngredientList ingredients={this.state.ingredients} />}
+          <IngredientForm
+          getIngredientList={() => this.getIngredientList()} />
+          {this.state.ingredients.length < 1 ? <p>Loading...</p> :
+          <IngredientList ingredients={this.state.ingredients} />}
       </div>
     );
   }
